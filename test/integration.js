@@ -55,6 +55,7 @@ describe('Fritzdect-AHA-API', () => {
 		//assert.equal(result, true);
 		expect(result).to.equal(true);
 	});
+	/*
 	it('function getdevicelistinfos', async () => {
 		const result = await fritz.getDeviceListInfos();
 		//console.log('getdevicelistinfos result', JSON.parse(result));
@@ -62,6 +63,7 @@ describe('Fritzdect-AHA-API', () => {
 		//console.log(switchlist);
 		expect(parser.xml2json(result).devicelist).to.eql(devicelist);
 	});
+	*/
 	it('function getswitchlist', async () => {
 		const result = await fritz.getSwitchList();
 		//console.log('getswitchlist result', JSON.parse(result));
