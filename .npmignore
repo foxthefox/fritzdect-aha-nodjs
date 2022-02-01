@@ -1,0 +1,8 @@
+tasks
+node_modules
+.idea
+.git
+/node_modules
+
+# npm package files
+package-lock.json
