@@ -1,4 +1,4 @@
-# fritzdect-aha-nodjs
+# fritzdect-aha-nodejs
 NodeJS library using the AHA api of Fritzbox to control DECT smarthome devices.
 
 [![NPM version](http://img.shields.io/npm/v/fritzdect-aha-nodejs.svg)](https://npmjs.org/package/fritzdect-aha-nodejs)
@@ -11,6 +11,7 @@ NodeJS library using the AHA api of Fritzbox to control DECT smarthome devices.
 * control grouped devices
 * control configured templates
 * uses new session ID method (FW >7.25), as well as the fallback to md5 method as a fallback
+* no production dependencies
 
 ## Getting Started
 
@@ -37,7 +38,7 @@ We use SemVer for versioning. For the versions available, see the tags on this r
 ## License
 Copyright (c) 2022 foxthefox <foxthefox@wysiwis.net>
 
-see [License.md]
+see [LICENSE.md]
 
  ## Acknowledgments
  * based on ideas of https://github.com/andig/fritzapi
