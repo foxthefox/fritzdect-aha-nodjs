@@ -4,6 +4,8 @@ const http = require('http');
 const fs = require('fs');
 const { parse } = require('querystring');
 const parser = require('xml2json-light');
+const figlet = require('figlet');
+const chalk = require('chalk');
 
 const path = require('path');
 console.log('PATH ist ' + path.join(__dirname, './data/'));
@@ -26,14 +28,25 @@ const guestWlan = fs.readFileSync(path.join(__dirname, './data/') + 'guest_wlan_
 let server;
 
 function setupHttpServer(callback) {
+	console.log(
+		chalk.yellow(
+			figlet.textSync('FB AHA Emulation', {
+				font: 'Standard',
+				horizontalLayout: 'default',
+				verticalLayout: 'default',
+				width: 80,
+				whitespaceBreak: true
+			})
+		)
+	);
 	//We need a function which handles requests and send response
 	//Create a server
 	server = http.createServer(handleHttpRequest);
 	//Lets start our server
 	server.listen(3333, function() {
 		//Callback triggered when server is successfully listening. Hurray!
-		console.log('MOCK HTTP-Server (Fritzbox Emulation) listening on: http://localhost:%s', 3333);
-		console.log('for testing, setup in iobroker for second instance admin:password');
+		console.log(chalk.bold('MOCK HTTP-Server (Fritzbox Emulation) listening on: http://localhost:3333'));
+		console.log(chalk.bold('for testing, setup in iobroker for second instance admin:password'));
 		callback();
 	});
 }
