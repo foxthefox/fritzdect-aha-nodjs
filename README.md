@@ -1,5 +1,6 @@
 # fritzdect-aha-nodejs
 NodeJS library using the AHA api of Fritzbox to control DECT smarthome devices.
+This library is not, in any way, affiliated or related to AVM GmbH. Use it at your own risk.
 
 [![NPM version](http://img.shields.io/npm/v/fritzdect-aha-nodejs.svg)](https://npmjs.org/package/fritzdect-aha-nodejs)
 [![NPM Downloads](https://img.shields.io/npm/dm/fritzdect-aha-nodejs.svg?style=flat)](https://npmjs.org/package/fritzdect-aha-nodejs)
