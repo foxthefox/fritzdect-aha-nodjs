@@ -1,0 +1,12 @@
+<Name>Dial</Name><Access>2</Access><Name>App</Name><Access>2</Access><Name>HomeAuto</Name><Access>2</Access><Name>BoxAdmin</Name><Access>2</Access><Name>Phone</Name><Access>2</Access><Rights>
+    <Name>Dial</Name>
+    <Access>2</Access>
+    <Name>App</Name>
+    <Access>2</Access>
+    <Name>HomeAuto</Name>
+    <Access>2</Access>
+    <Name>BoxAdmin</Name>
+    <Access>2</Access>
+    <Name>Phone</Name>
+    <Access>2</Access>
+</Rights>
