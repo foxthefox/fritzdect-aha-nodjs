@@ -1,23 +1,28 @@
-var expect = require('chai').expect;
-var Fritz = require('../fritzdectaha.js');
-const server = require('./fritz_mockserver_new.js');
+import { expect } from 'chai';
+import { Fritz, FritzEmu } from '../index.js';
 
 /*Setup*/
-const fs = require('fs');
-const parser = require('xml2json-light');
-const path = require('path');
-console.log('PATH is ' + path.join(__dirname, './data/'));
-const xmlDevicesGroups = fs.readFileSync(path.join(__dirname, './data/') + 'test_api_response.xml');
+import { readFileSync } from 'fs';
+import { xml2json } from 'xml2json-light';
+import { join } from 'path';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+console.log('PATH is ' + join(__dirname, './data/'));
+const xmlDevicesGroups = readFileSync(join(__dirname, './data/') + 'test_api_response.xml');
 //var xmlDevicesGroups = fs.readFileSync('./test.xml');
 
-const xmlTemplate = fs.readFileSync(path.join(__dirname, './data/') + 'template_answer.xml');
+const xmlTemplate = readFileSync(join(__dirname, './data/') + 'template_answer.xml');
 
-const xmlTempStat = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_temp_answer.xml');
+const xmlTempStat = readFileSync(join(__dirname, './data/') + 'devicestat_temp_answer.xml');
 
-const xmlPowerStats = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_power_answer.xml');
+const xmlPowerStats = readFileSync(join(__dirname, './data/') + 'devicestat_power_answer.xml');
 
-const xmlColorDefaults = fs.readFileSync(path.join(__dirname, './data/') + 'color_defaults.xml');
-const devices2json = parser.xml2json(String(xmlDevicesGroups));
+const xmlColorDefaults = readFileSync(join(__dirname, './data/') + 'color_defaults.xml');
+const devices2json = xml2json(String(xmlDevicesGroups));
 let devices = [].concat((devices2json.devicelist || {}).device || []).map((device) => {
 	// remove spaces in AINs
 	device.identifier = device.identifier.replace(/\s/g, '');
@@ -28,7 +33,7 @@ let groups = [].concat((devices2json.devicelist || {}).group || []).map((group) 
 	group.identifier = group.identifier.replace(/\s/g, '');
 	return group;
 });
-const templates2json = parser.xml2json(String(xmlTemplate));
+const templates2json = xml2json(String(xmlTemplate));
 let templates = [].concat((templates2json.templatelist || {}).template || []).map(function(template) {
 	// remove spaces in AINs
 	// template.identifier = group.identifier.replace(/\s/g, '');
@@ -41,9 +46,13 @@ apiresponse['devicelist'] = { version: '1', device: devices, group: groups };
 apiresponse['templatelist'] = { version: '1', template: templates };
 
 /*Test*/
-describe('Fritzdect-AHA-API', () => {
+describe('Test of Fritzdect-AHA-API', () => {
+	let port = 3311;
+	let testfile = 'bla.xml';
+	let testdevice = 'fritzbox';
 	before('start the FB emulation', () => {
-		server.setupHttpServer(function() {});
+		const emulation = new FritzEmu(testfile, port, false);
+		emulation.setupHttpServer(function() {});
 	});
 	var fritz;
 	// if promise is returned = success
