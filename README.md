@@ -15,9 +15,10 @@ This library is not, in any way, affiliated or related to AVM GmbH. Use it at yo
 * no production dependencies
 
 ## Getting Started
+it is an ES module with named exports
 
 ### Prerequisites
-* nodejs >10
+* nodejs >14 (may work with older version, but tested with > 14)
 * fritzbox FW >6.69
 
 ### Installing
@@ -28,13 +29,8 @@ npm install fritzdect-aha-nodejs
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* 0.9.1 (foxthefox) first release on npm
 * 0.0.1 (foxthefox) initial release
-
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
 
 ## License
 Copyright (c) 2022 foxthefox <foxthefox@wysiwis.net>

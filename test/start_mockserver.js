@@ -1,3 +1,4 @@
-const server = require('./fritz_mockserver_new.js');
+import { FritzEmu } from '../index.js';
 
-server.setupHttpServer(function() {});
+const emulation = new FritzEmu();
+emulation.setupHttpServer(function() {});
