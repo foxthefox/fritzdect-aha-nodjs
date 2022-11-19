@@ -1,31 +1,28 @@
-const expect = require('chai').expect;
-const Fritz = require('../index.js').Fritz;
-const FritzEmu = require('../index.js').FritzEmu;
+import { expect } from 'chai';
+import { Fritz, FritzEmu } from '../index.js';
 
 /*Setup*/
-const http = require('http');
-const fs = require('fs');
-//const { parse } = require('querystring');
-const parser = require('xml2json-light');
+import { readFileSync } from 'fs';
+import { xml2json } from 'xml2json-light';
+import { join } from 'path';
 
-const figlet = require('figlet');
-const chalk = require('chalk');
-const crypto = require('crypto');
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const path = require('path');
-console.log('PATH ist ' + path.join(__dirname, './data/'));
-
-const xmlDevicesGroups = fs.readFileSync(path.join(__dirname, './data/') + 'test_api_response.xml');
+console.log('PATH is ' + join(__dirname, './data/'));
+const xmlDevicesGroups = readFileSync(join(__dirname, './data/') + 'test_api_response.xml');
 //var xmlDevicesGroups = fs.readFileSync('./test.xml');
 
-const xmlTemplate = fs.readFileSync(path.join(__dirname, './data/') + 'template_answer.xml');
+const xmlTemplate = readFileSync(join(__dirname, './data/') + 'template_answer.xml');
 
-const xmlTempStat = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_temp_answer.xml');
+const xmlTempStat = readFileSync(join(__dirname, './data/') + 'devicestat_temp_answer.xml');
 
-const xmlPowerStats = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_power_answer.xml');
+const xmlPowerStats = readFileSync(join(__dirname, './data/') + 'devicestat_power_answer.xml');
 
-const xmlColorDefaults = fs.readFileSync(path.join(__dirname, './data/') + 'color_defaults.xml');
-const devices2json = parser.xml2json(String(xmlDevicesGroups));
+const xmlColorDefaults = readFileSync(join(__dirname, './data/') + 'color_defaults.xml');
+const devices2json = xml2json(String(xmlDevicesGroups));
 let devices = [].concat((devices2json.devicelist || {}).device || []).map((device) => {
 	// remove spaces in AINs
 	device.identifier = device.identifier.replace(/\s/g, '');
@@ -36,7 +33,7 @@ let groups = [].concat((devices2json.devicelist || {}).group || []).map((group) 
 	group.identifier = group.identifier.replace(/\s/g, '');
 	return group;
 });
-const templates2json = parser.xml2json(String(xmlTemplate));
+const templates2json = xml2json(String(xmlTemplate));
 let templates = [].concat((templates2json.templatelist || {}).template || []).map(function(template) {
 	// remove spaces in AINs
 	// template.identifier = group.identifier.replace(/\s/g, '');
@@ -78,7 +75,7 @@ describe('Test of Fritzdect-AHA-API', () => {
 	*/
 	it('function getswitchlist', async () => {
 		const result = await fritz.getSwitchList();
-		//console.log('getswitchlist result', result);
+		//console.log('getswitchlist result', JSON.parse(result));
 		const switchlist = apiresponse['devicelist']['device']
 			.filter((device) => device.hasOwnProperty('switch'))
 			.map((device) => device.identifier)
@@ -87,19 +84,15 @@ describe('Test of Fritzdect-AHA-API', () => {
 					.filter((device) => device.hasOwnProperty('switch'))
 					.map((device) => device.identifier)
 			);
-		//FB liefert kein array zurück, sondern ain über Komma getrennt
-		//switchlist wäre ein array, über String() wird es vergleichbarer Text
-		expect(result).to.eql(String(switchlist));
+		//console.log(switchlist);
+		expect(JSON.parse(result)).to.have.length(3);
+		expect(JSON.parse(result)).to.eql(switchlist);
 	});
 	it('logout success returns true', async () => {
 		const result = await fritz.logout_SID();
 		expect(result).to.equal(false);
 	});
 });
-
-// alte Fb prüfen
-// alle exponierten CMDs prüfen
-// Inhalte prüfen
 
 /*
 var assert = require('assert');
