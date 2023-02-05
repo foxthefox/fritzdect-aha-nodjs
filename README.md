@@ -43,9 +43,16 @@ const logout = await fritz.logout_SID();
 see the example.js.
 
 ## API Calls
-* todo for 1.0.1
+* todo for 1.0.2
 
 ## Changelog
+### 1.0.2
+* (foxthefox) use of User-Agent
+* (foxthefox) implementation of new commands from API version 1.57
+
+### 1.0.1
+* skipping usage of chalk, figlet
+
 ### 1.0.0
 * (foxthefox) common js module with 2 named exports Fritz and FritzEmu
 
@@ -53,7 +60,7 @@ see the example.js.
 * (foxthefox) first release on npm as ESM
 
 ## License
-Copyright (c) 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2022-2023 foxthefox <foxthefox@wysiwis.net>
 
 see [LICENSE.md]
 
