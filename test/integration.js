@@ -8,8 +8,6 @@ const fs = require('fs');
 //const { parse } = require('querystring');
 const parser = require('xml2json-light');
 
-const figlet = require('figlet');
-const chalk = require('chalk');
 const crypto = require('crypto');
 
 const path = require('path');
