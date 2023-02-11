@@ -6,7 +6,7 @@ const FritzEmu = require('../index.js').FritzEmu;
 const http = require('http');
 const fs = require('fs');
 //const { parse } = require('querystring');
-const parser = require('xml2json-light');
+const parser = require('../lib/xml2json.js');
 
 const crypto = require('crypto');
 

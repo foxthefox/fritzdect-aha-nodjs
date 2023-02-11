@@ -43,7 +43,7 @@ const logout = await fritz.logout_SID();
 see the example.js.
 
 ## API Calls
-* todo for 1.0.2
+* todo for 1.0.3
 
 ## Changelog
 ### 1.0.2
@@ -51,7 +51,7 @@ see the example.js.
 * (foxthefox) implementation of new commands from API version 1.57
 
 ### 1.0.1
-* skipping usage of chalk, figlet
+* (foxthefox) skipping usage of chalk, figlet
 
 ### 1.0.0
 * (foxthefox) common js module with 2 named exports Fritz and FritzEmu

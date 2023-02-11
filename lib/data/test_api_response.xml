@@ -660,4 +660,35 @@
 			<lastalertchgtimestamp>1617368283</lastalertchgtimestamp>
 		</alert>
 	</device>
+	<device>
+		<identifier>11934 0318081</identifier>
+		<id>407</id>
+		<functionbitmask>1</functionbitmask>
+		<fwversion>31.20</fwversion>
+		<manufacturer>0x0feb</manufacturer>
+		<productname>HAN-FUN</productname>
+		<present>1</present>
+		<txbusy>0</txbusy>
+		<name>HAN-FUN #2</name>
+	</device>
+	<device>
+		<identifier>11934 0318081-1</identifier>
+		<id>2001</id>
+		<functionbitmask>8208</functionbitmask>
+		<fwversion>0.0</fwversion>
+		<manufacturer>0x0feb</manufacturer>
+		<productname>HAN-FUN</productname>
+		<present>1</present>
+		<txbusy>0</txbusy>
+		<name>HAN-FUN #2</name>
+		<etsiunitinfo>
+			<etsideviceid>407</etsideviceid>
+			<unittype>514</unittype>
+			<interfaces>256</interfaces>
+		</etsiunitinfo>
+		<alert>
+			<state>0</state>
+			<lastalertchgtimestamp>1670596133</lastalertchgtimestamp>
+		</alert>
+	</device>
 </devicelist>
