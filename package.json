@@ -1,10 +1,9 @@
 {
 	"name": "fritzdect-aha-nodejs",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "NodeJS library using the AHA api of Fritzbox to control DECT smarthome devices.",
 	"main": "index.js",
 	"dependencies": {
-		"xml2json-light": "^1.0.6",
 		"command-line-args": "^5.2.0",
 		"command-line-usage": "^6.1.1"
 	},
@@ -21,11 +20,7 @@
 		"type": "git",
 		"url": "git+https://github.com/foxthefox/fritzdect-aha-nodejs.git"
 	},
-	"keywords": [
-		"DECT",
-		"Fritzbox",
-		"AHA-api"
-	],
+	"keywords": [ "DECT", "Fritzbox", "AHA-api" ],
 	"author": "foxthefox@wysiwis.net",
 	"license": "MIT",
 	"bugs": {
