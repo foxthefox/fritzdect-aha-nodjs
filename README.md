@@ -46,6 +46,9 @@ see the example.js.
 * todo for 1.0.3
 
 ## Changelog
+### 2.0.0
+* (foxthefox) recfactoring of emulation (breaking change), variable testdata can be injected
+
 ### 1.0.2
 * (foxthefox) use of User-Agent
 * (foxthefox) implementation of new commands from API version 1.57

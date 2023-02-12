@@ -17,12 +17,13 @@ const xmlDevicesGroups = fs.readFileSync(path.join(__dirname, './data/') + 'test
 //var xmlDevicesGroups = fs.readFileSync('./test.xml');
 
 const xmlTemplate = fs.readFileSync(path.join(__dirname, './data/') + 'template_answer.xml');
-
+const xmlTriggerlist = fs.readFileSync(path.join(__dirname, './data/') + 'getriggerlistinfos.xml');
 const xmlTempStat = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_temp_answer.xml');
-
 const xmlPowerStats = fs.readFileSync(path.join(__dirname, './data/') + 'devicestat_power_answer.xml');
-
 const xmlColorDefaults = fs.readFileSync(path.join(__dirname, './data/') + 'color_defaults.xml');
+const hkr_batt = fs.readFileSync(path.join(__dirname, './data/') + 'hkr_response.xml');
+const guestWlan = fs.readFileSync(path.join(__dirname, './data/') + 'guest_wlan_form.xml');
+
 const devices2json = parser.xml2json(String(xmlDevicesGroups));
 let devices = [].concat((devices2json.devicelist || {}).device || []).map((device) => {
 	// remove spaces in AINs
@@ -48,11 +49,20 @@ apiresponse['templatelist'] = { version: '1', template: templates };
 
 /*Test*/
 describe('Test of Fritzdect-AHA-API', () => {
-	let port = 3311;
-	let testfile = 'bla.xml';
-	let testdevice = 'fritzbox';
+	let port = 3333;
 	before('start the FB emulation', () => {
-		const emulation = new FritzEmu(testfile, port, false);
+		const emulation = new FritzEmu(
+			port,
+			false,
+			xmlDevicesGroups,
+			xmlTemplate,
+			xmlTriggerlist,
+			xmlColorDefaults,
+			xmlTempStat,
+			xmlPowerStats,
+			guestWlan,
+			hkr_batt
+		);
 		emulation.setupHttpServer(function() {});
 	});
 	var fritz;
