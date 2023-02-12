@@ -46,6 +46,9 @@ see the example.js.
 * todo for 1.0.3
 
 ## Changelog
+### 2.0.1
+* (foxthefox) forgotten "this." at apiresponse
+
 ### 2.0.0
 * (foxthefox) recfactoring of emulation (breaking change), variable testdata can be injected
 
