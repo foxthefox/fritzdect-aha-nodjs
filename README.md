@@ -43,9 +43,56 @@ const logout = await fritz.logout_SID();
 see the example.js.
 
 ## API Calls
-* todo for 1.0.3
+### reading FB
+
+|API-call|implements FB call|
+|:----|:---|
+|getDeviceListInfos()| getdevicelistinfos|
+|getTemplateListInfos()| gettemplatelistinfos|
+|getTriggerListInfos()| gettriggerlistinfos|
+|getColorDefaults()| getcolordefaults|	
+|getDeviceInfos(ain)| getdeviceinfos|
+|getBasicDeviceStats(ain)| getbasicdevicestats|
+|getSwitchList()| getswitchlist|
+|getSwitchState(ain)| getswitchstate|
+|getSwitchPresent(ain)| getswitchpresent|
+|getSwitchPower(ain)| getswitchpower|
+|getSwitchEnergy(ain)| getswitchenergy|
+|getSwitchName(ain)| getswitchname|
+|getTemperature(ain)| gettemperature|
+|getHkrTsoll(ain)| gethkrtsoll|
+|getHkrKomfort(ain)| gethkrkomfort|
+|getHkrAbsenk(ain)| gethkrabsenk|
+|getUserPermissions()| not a FB call|
+
+### commands to FB
+
+|API-call|implements FB call|
+|:----|:---|
+|applyTemplate(ain)| applytemplate|
+|setSwitchOn(ain)| setswitchon|
+|setSwitchOff(ain)| setswitchoff|
+|setSwitchToggle(ain)| setswitchtoggle|
+|setSimpleOn(ain)| setsimpleonoff&onoff=1|
+|setSimpleOff(ain)| setsimpleonoff&onoff=0|
+|setSimpleToggle(ain)| setsimpletoggle|
+|setTempTarget(ain, temp)| sethkrtsoll|
+|setHkrBoost(ain, time)| sethkrboost|
+|setWindowOpen(ain, time)| sethkrwindowopen|
+|setBlind(ain, target)| setblind|
+|setLevel(ain, level)| setlevel|
+|setColorTemperature(ain, temp)| setcolortemperature|
+|setColor(ain, saturation, hue)| setcolor|
+|setUnmappedColor(ain, saturation, hue)| setunmappedcolor|
+|setTriggerActive(ain, active)| settriggeractive|
 
 ## Changelog
+### 2.1.0
+* (foxthefox) new functions setSimpleToggle, setLevelPercentage, setUnmappedColor, setTriggerActive
+* (foxthefox) remove spaces in ain if part of the function call
+* (foxthefox) extended testing
+* (foxthefox) debug-flag as new parameter during instantiation
+
 ### 2.0.1
 * (foxthefox) forgotten "this." at apiresponse
 
