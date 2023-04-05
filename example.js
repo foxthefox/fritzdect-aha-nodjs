@@ -2,7 +2,7 @@
 
 const Fritz = require('./index.js').Fritz;
 
-const fritz = new Fritz('admin', 'password', 'http://localhost:3333');
+const fritz = new Fritz('admin', 'password', 'http://localhost:3333', false);
 
 async function test() {
 	const login = await fritz.login_SID().catch((e) => {
