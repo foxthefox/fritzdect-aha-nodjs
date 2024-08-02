@@ -4,7 +4,7 @@
 	"description": "NodeJS library using the AHA api of Fritzbox to control DECT smarthome devices.",
 	"main": "index.js",
 	"dependencies": {
-		"command-line-args": "^5.2.0",
+		"command-line-args": "^6.0.0",
 		"command-line-usage": "^7.0.3"
 	},
 	"devDependencies": {
